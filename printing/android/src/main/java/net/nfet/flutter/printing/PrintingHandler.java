@@ -97,12 +97,14 @@ public class PrintingHandler implements MethodChannel.MethodCallHandler {
                     final byte[] document = call.argument("doc");
                     final ArrayList<Integer> pages = call.argument("pages");
                     Double scale = call.argument("scale");
-                    final PrintingJob printJob =
-                            new PrintingJob(activity, this, (int) call.argument("job"));
+                    final PrintingJob printJob = new PrintingJob(activity, this, (int) call.argument("job"));
                     printJob.rasterPdf(document, pages, scale);
                     result.success(1);
                     break;
                 }
+                case "pickPrinter":
+                    result.success(1);
+                    break;
                 default:
                     result.notImplemented();
                     break;
