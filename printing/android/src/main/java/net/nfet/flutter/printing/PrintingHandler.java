@@ -103,7 +103,12 @@ public class PrintingHandler implements MethodChannel.MethodCallHandler {
                     break;
                 }
                 case "pickPrinter":
-                    result.success(1);
+                    HashMap<String, Object> data = new HashMap<>();
+                    result.put("url", "ANDROID_STATIC_PRINT");
+                    result.put("name", "ANDROID_STATIC_PRINT");
+                    result.put("model", "ANDROID_STATIC_PRINT");
+                    result.put("location", "ANDROID_STATIC_PRINT");
+                    result.success(data);
                     break;
                 default:
                     result.notImplemented();
